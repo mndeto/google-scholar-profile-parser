@@ -6,7 +6,8 @@
 
 namespace GScholarProfileParser\DomCrawler;
 
-use Goutte\Client;
+use Symfony\Component\BrowserKit\HttpBrowser;
+use Symfony\Component\HttpClient\HttpClient;
 use Symfony\Component\DomCrawler\Crawler;
 
 /**
@@ -25,7 +26,7 @@ class ProfilePageCrawler
      * @param Client $client
      * @param string $profileId
      */
-    public function __construct(Client $client, string $profileId)
+    public function __construct(HttpBrowser $client, string $profileId)
     {
         $url = sprintf(
             '%s://%s/citations?user=%s&pagesize=1000&sortby=pubdate&hl=en',
